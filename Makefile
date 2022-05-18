@@ -24,3 +24,7 @@ document:
 	pdoc --output-dir docs --logo https://cdn.ons.gov.uk/assets/images/ons-logo/v2/ons-logo.svg --show-source storytelling
 
 
+git:
+	git add .
+	git commit -m "auto-update"
+	git push

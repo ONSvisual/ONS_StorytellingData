@@ -12,7 +12,7 @@ json = []
 
 
 #  loop over neighbours
-for cid , row  in lookups.neighbours.iterrows():
+for cid , row  in tqdm(list(lookups.neighbours.iterrows())):
 
     if cid[0] == 'E':
         COUNTRY_CODE = 'E92000011'
@@ -29,7 +29,7 @@ for cid , row  in lookups.neighbours.iterrows():
 
 
     json.append(dummy)
-    break
+
 
 
 
