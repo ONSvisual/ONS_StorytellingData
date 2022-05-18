@@ -1,0 +1,42 @@
+[
+    {
+        "CODE": "E06000001",
+        "NAME": "Hartlepool",
+        "REGION_CODE": "E12000001",
+        "REGION_NAME": "North East",
+        "COUNTRY_CODE": "E92000011",
+        "COUNTRY_NAME": "England",
+        "WALES": 0,
+        "NEIGHBOURS": {
+            "CODES": [
+                "E06000004",
+                "E06000047",
+                "E06000003",
+                "E06000002",
+                "E06000005",
+                "E08000024",
+                "E07000168"
+            ],
+            "last": {
+                "CODE": "E07000168",
+                "NAME": "Scarborough",
+                "val": "..."
+            },
+            "penultimate": {
+                "CODE": "E08000024",
+                "NAME": "Sunderland",
+                "val": "..."
+            },
+            "second": {
+                "CODE": "E06000047",
+                "NAME": "County Durham",
+                "val": "..."
+            },
+            "top": {
+                "CODE": "E06000004",
+                "NAME": "Stockton-on-Tees",
+                "val": "..."
+            }
+        }
+    }
+]
