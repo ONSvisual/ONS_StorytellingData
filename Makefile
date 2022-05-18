@@ -22,7 +22,7 @@ story:
 
 document:
 	pdoc --output-dir docs --logo https://cdn.ons.gov.uk/assets/images/ons-logo/v2/ons-logo.svg --show-source storytelling
-
+	make git
 
 git:
 	git add .
