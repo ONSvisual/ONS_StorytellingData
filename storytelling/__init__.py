@@ -2,8 +2,11 @@
 Welcome to the StoryTelling documentation.
 
 This consists of a series of functions that are used to generate the story dataset. 
-To view the main script go to <a href="./storytelling/__main__.py">__main__.py</a> and select "View source".
+To view the main script go to <a href="./storytelling/__main__.html">__main__.py</a> and select "View source".
 
+
+-----------------------------------------------------
+-----------------------------------------------------
 '''
 
 
