@@ -4,9 +4,7 @@ Welcome to the StoryTelling documentation.
 This consists of a series of functions that are used to generate the story dataset. 
 To view the main script go to <a href="./storytelling/__main__.html">__main__.py</a> and select "View source".
 
-
------------------------------------------------------
------------------------------------------------------
+This pade depicts the __init__.py file. 
 '''
 
 from . import config
@@ -24,6 +22,7 @@ import numpy as np
 import json
 
 class NpEncoder(json.JSONEncoder):
+    ''' The json encoder class'''
     def default(self, obj):
         if isinstance(obj, np.integer):
             return int(obj)
