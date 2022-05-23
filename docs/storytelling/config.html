@@ -29,13 +29,6 @@
 
 
 
-        <h2>API Documentation</h2>
-            <ul class="memberlist">
-            <li>
-                    <a class="variable" href="#simpletable">simpletable</a>
-            </li>
-    </ul>
-
 
 
         <a class="attribution" title="pdoc: Python API documentation generator" href="https://pdoc.dev" target="_blank">
@@ -50,66 +43,78 @@
                     <h1 class="modulename">
 <a href="./../storytelling.html">storytelling</a><wbr>.config    </h1>
 
-                
+                        <div class="docstring"><p>This file contains the configuration for the project.</p>
+
+<ul>
+<li>outfile</li>
+<li>directory</li>
+<li>excel to csv converted directory</li>
+<li>primary and secondary year file names</li>
+<li>translation of pnumbers to something readable</li>
+</ul>
+
+<p>click view source to see the code.</p>
+</div>
+
                         <input id="config-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 
                         <label class="view-source-button" for="config-view-source"><span>View Source</span></label>
 
-                        <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos"> 1</span></a><span class="n">testing</span> <span class="o">=</span> <span class="kc">False</span>
-</span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a><span class="nb">print</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+                        <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos"> 1</span></a><span class="sd">&#39;&#39;&#39;</span>
+</span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a><span class="sd">This file contains the configuration for the project.</span>
 </span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a>
-</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="k">if</span> <span class="n">testing</span><span class="p">:</span> <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;../&#39;</span>
-</span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a><span class="k">else</span><span class="p">:</span> <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;./&#39;</span>
-</span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a>
-</span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a>
-</span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a><span class="kn">import</span> <span class="nn">re</span>
+</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="sd">- outfile</span>
+</span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a><span class="sd">- directory</span>
+</span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a><span class="sd">- excel to csv converted directory</span>
+</span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a><span class="sd">- primary and secondary year file names</span>
+</span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a><span class="sd">- translation of pnumbers to something readable</span>
 </span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a>
-</span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a><span class="n">OUTFILE</span> <span class="o">=</span>  <span class="n">prefix</span> <span class="o">+</span> <span class="s1">&#39;output.json&#39;</span>
-</span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a>
-</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a><span class="n">DIR</span> <span class="o">=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s1">&#39;data/&#39;</span>
-</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a><span class="n">CSVTABLES</span> <span class="o">=</span> <span class="n">DIR</span> <span class="o">+</span> <span class="s1">&#39;fixedformatting/&#39;</span>
+</span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a>
+</span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a><span class="sd">click view source to see the code.</span>
+</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a>
+</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a><span class="sd">&#39;&#39;&#39;</span>
 </span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a>
-</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a><span class="n">PRIMARY</span> <span class="o">=</span> <span class="s1">&#39;census2011_Table-&#39;</span>
-</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a><span class="n">SECONDARY</span> <span class="o">=</span> <span class="s1">&#39;midyear2020_rounded_Table-&#39;</span>
+</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a><span class="n">testing</span> <span class="o">=</span> <span class="kc">False</span>
+</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a><span class="nb">print</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 </span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a>
-</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a><span class="n">PRIMARY_NAME</span> <span class="o">=</span> <span class="s1">&#39;Y&#39;</span> <span class="o">+</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;20(\d</span><span class="si">{2}</span><span class="s1">)&#39;</span><span class="p">,</span><span class="n">PRIMARY</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a><span class="n">SECONDARY_NAME</span> <span class="o">=</span> <span class="s1">&#39;Y&#39;</span> <span class="o">+</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;20(\d</span><span class="si">{2}</span><span class="s1">)&#39;</span><span class="p">,</span><span class="n">SECONDARY</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a><span class="k">if</span> <span class="n">testing</span><span class="p">:</span> <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;../&#39;</span>
+</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a><span class="k">else</span><span class="p">:</span> <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;./&#39;</span>
 </span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>
-</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a><span class="n">CATEGORIES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;PRIMARY&#39;</span><span class="p">,</span><span class="s1">&#39;SECONDARY&#39;</span><span class="p">]</span>
-</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a>
-</span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a><span class="n">simpletable</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a>    <span class="s1">&#39;mf&#39;</span> <span class="p">:</span> <span class="s1">&#39;P01&#39;</span><span class="p">,</span>
-</span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a>    <span class="s1">&#39;agebands&#39;</span> <span class="p">:</span> <span class="s1">&#39;P02&#39;</span><span class="p">,</span>
-</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a>    <span class="s1">&#39;pyramid&#39;</span> <span class="p">:</span> <span class="s1">&#39;P03&#39;</span><span class="p">,</span>
-</span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a>    <span class="s1">&#39;density&#39;</span> <span class="p">:</span> <span class="s1">&#39;P04&#39;</span><span class="p">,</span>
-</span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a><span class="p">}</span>
-</span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a>
-</span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a>
+</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a>
+</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a><span class="kn">import</span> <span class="nn">re</span>
+</span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a>
+</span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a><span class="n">OUTFILE</span> <span class="o">=</span>  <span class="n">prefix</span> <span class="o">+</span> <span class="s1">&#39;output.json&#39;</span>
+</span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a>
+</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a><span class="n">DIR</span> <span class="o">=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s1">&#39;data/&#39;</span>
+</span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a><span class="n">CSVTABLES</span> <span class="o">=</span> <span class="n">DIR</span> <span class="o">+</span> <span class="s1">&#39;fixedformatting/&#39;</span>
+</span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a>
+</span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a><span class="n">PRIMARY</span> <span class="o">=</span> <span class="s1">&#39;census2011_Table-&#39;</span>
+</span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a><span class="n">SECONDARY</span> <span class="o">=</span> <span class="s1">&#39;midyear2020_rounded_Table-&#39;</span>
 </span><span id="L-31"><a href="#L-31"><span class="linenos">31</span></a>
-</span><span id="L-32"><a href="#L-32"><span class="linenos">32</span></a>
-</span><span id="L-33"><a href="#L-33"><span class="linenos">33</span></a>
-</span><span id="L-34"><a href="#L-34"><span class="linenos">34</span></a><span class="sd">&#39;&#39;&#39;</span>
-</span><span id="L-35"><a href="#L-35"><span class="linenos">35</span></a><span class="sd">%load_ext autoreload</span>
-</span><span id="L-36"><a href="#L-36"><span class="linenos">36</span></a><span class="sd">%autoreload 2</span>
-</span><span id="L-37"><a href="#L-37"><span class="linenos">37</span></a><span class="sd">&#39;&#39;&#39;</span>
+</span><span id="L-32"><a href="#L-32"><span class="linenos">32</span></a><span class="n">PRIMARY_NAME</span> <span class="o">=</span> <span class="s1">&#39;Y&#39;</span> <span class="o">+</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;20(\d</span><span class="si">{2}</span><span class="s1">)&#39;</span><span class="p">,</span><span class="n">PRIMARY</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+</span><span id="L-33"><a href="#L-33"><span class="linenos">33</span></a><span class="n">SECONDARY_NAME</span> <span class="o">=</span> <span class="s1">&#39;Y&#39;</span> <span class="o">+</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;20(\d</span><span class="si">{2}</span><span class="s1">)&#39;</span><span class="p">,</span><span class="n">SECONDARY</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+</span><span id="L-34"><a href="#L-34"><span class="linenos">34</span></a>
+</span><span id="L-35"><a href="#L-35"><span class="linenos">35</span></a><span class="n">CATEGORIES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;PRIMARY&#39;</span><span class="p">,</span><span class="s1">&#39;SECONDARY&#39;</span><span class="p">]</span>
+</span><span id="L-36"><a href="#L-36"><span class="linenos">36</span></a>
+</span><span id="L-37"><a href="#L-37"><span class="linenos">37</span></a><span class="n">simpletable</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="L-38"><a href="#L-38"><span class="linenos">38</span></a>    <span class="s1">&#39;mf&#39;</span> <span class="p">:</span> <span class="s1">&#39;P01&#39;</span><span class="p">,</span>
+</span><span id="L-39"><a href="#L-39"><span class="linenos">39</span></a>    <span class="s1">&#39;agebands&#39;</span> <span class="p">:</span> <span class="s1">&#39;P02&#39;</span><span class="p">,</span>
+</span><span id="L-40"><a href="#L-40"><span class="linenos">40</span></a>    <span class="s1">&#39;pyramid&#39;</span> <span class="p">:</span> <span class="s1">&#39;P03&#39;</span><span class="p">,</span>
+</span><span id="L-41"><a href="#L-41"><span class="linenos">41</span></a>    <span class="s1">&#39;density&#39;</span> <span class="p">:</span> <span class="s1">&#39;P04&#39;</span><span class="p">,</span>
+</span><span id="L-42"><a href="#L-42"><span class="linenos">42</span></a><span class="p">}</span>
+</span><span id="L-43"><a href="#L-43"><span class="linenos">43</span></a>
+</span><span id="L-44"><a href="#L-44"><span class="linenos">44</span></a>
+</span><span id="L-45"><a href="#L-45"><span class="linenos">45</span></a>
+</span><span id="L-46"><a href="#L-46"><span class="linenos">46</span></a>
+</span><span id="L-47"><a href="#L-47"><span class="linenos">47</span></a>
+</span><span id="L-48"><a href="#L-48"><span class="linenos">48</span></a><span class="c1"># &#39;&#39;&#39;</span>
+</span><span id="L-49"><a href="#L-49"><span class="linenos">49</span></a><span class="c1"># %load_ext autoreload</span>
+</span><span id="L-50"><a href="#L-50"><span class="linenos">50</span></a><span class="c1"># %autoreload 2</span>
+</span><span id="L-51"><a href="#L-51"><span class="linenos">51</span></a><span class="c1"># &#39;&#39;&#39;</span>
 </span></pre></div>
 
 
             </section>
-                <section id="simpletable">
-                    <div class="attr variable">
-            <span class="name">simpletable</span><span class="default_value"> = {&#39;mf&#39;: &#39;P01&#39;, &#39;agebands&#39;: &#39;P02&#39;, &#39;pyramid&#39;: &#39;P03&#39;, &#39;density&#39;: &#39;P04&#39;}</span>
-
-        
-    </div>
-    <a class="headerlink" href="#simpletable"></a>
-    
-            <div class="docstring"><p>%load_ext autoreload
-%autoreload 2</p>
-</div>
-
-
-                </section>
     </main>
 <script>
     function escapeHTML(html) {

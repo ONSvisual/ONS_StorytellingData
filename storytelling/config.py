@@ -1,3 +1,17 @@
+'''
+This file contains the configuration for the project.
+
+- outfile
+- directory
+- excel to csv converted directory
+- primary and secondary year file names
+- translation of pnumbers to something readable
+
+
+click view source to see the code.
+
+'''
+
 testing = False
 print(__name__)
 
@@ -31,7 +45,7 @@ simpletable = {
 
 
 
-'''
-%load_ext autoreload
-%autoreload 2
-'''
+# '''
+# %load_ext autoreload
+# %autoreload 2
+# '''
