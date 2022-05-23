@@ -25,6 +25,6 @@ document:
 	make git
 
 git:
-	git add .
+	git add -A
 	git commit -m "auto-update"
 	git push
