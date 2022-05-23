@@ -1,0 +1,68 @@
+
+population growth = total population  (PO1) sum    [2011-2021]/2011 * 100 
+
+
+po4 (rounded to 100) 
+calculate density using SAM
+here - me 
+all - total count 
+
+
+region rank : region -> rank from 1  DENSITY 
+
+
+Country trank - total population PO1 ranking 1 upwards (ENGLAND and WALES separate)
+
+
+
+under15  
+- po2  sum first 3cols 
+- totlas from po2 file
+(use po1 for total population . )
+
+over 65 last 6 
+
+working - all others 
+
+
+
+pyramid - PO3 - single row for each LA, separating into two arrays 
+give number as percentage of total population 
+
+
+ largest agegroup 21 - sum male and f - find largest (60-64) -> 60 starting age only
+
+
+ density d21 - table from tim 
+
+
+
+
+
+region - abs PO1 summing male and F 
+abs change 21-21
+pc - negatives need to be negative
+
+
+
+
+headlines - 
+LAD changes 
+biggest pop change up 
+
+
+regions change - ranking bu region not LA 
+
+
+football ptich extremes 
+
+pc change - growth / fall as a percentage. LAS 
+
+
+
+
+rank 
+
+
+
+
