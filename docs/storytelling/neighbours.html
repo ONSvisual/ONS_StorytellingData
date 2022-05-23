@@ -69,32 +69,35 @@
 </span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a>    <span class="sd">&#39;&#39;&#39; </span>
 </span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a><span class="sd">    Gets the values for regions.</span>
 </span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a><span class="sd">    This is calculated - yet unknown</span>
-</span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a>
+</span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a><span class="sd">```</span>
 </span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a><span class="sd">    input: Geocode of a region</span>
-</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a><span class="sd">    &#39;&#39;&#39;</span> 
-</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a>    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">CODE</span><span class="o">=</span><span class="n">code</span><span class="p">,</span><span class="n">NAME</span> <span class="o">=</span> <span class="n">names</span><span class="p">[</span><span class="n">code</span><span class="p">],</span> <span class="n">val</span><span class="o">=</span><span class="s1">&#39;WHAT IS THIS VALUE&#39;</span><span class="p">)</span>
-</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a>
-</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a>
-</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a><span class="n">nstats</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;last&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
-</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a><span class="s2">&quot;penultimate&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>
-</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a><span class="s2">&quot;second&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a><span class="s2">&quot;top&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
-</span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>
-</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a>
-</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a><span class="k">def</span> <span class="nf">get_neigbours</span><span class="p">(</span><span class="n">row</span><span class="p">:</span><span class="nb">list</span><span class="p">):</span>
-</span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a>    <span class="sd">&#39;&#39;&#39; </span>
-</span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a><span class="sd">    Gets the neigbours for regions and populates the aray with their values.</span>
-</span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a><span class="sd">    This follows the format provided in the nstats variable. </span>
-</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a>
-</span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a><span class="sd">    input: Ranked list of neighbours</span>
-</span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a><span class="sd">    </span>
-</span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a><span class="sd">    &#39;&#39;&#39;</span>
-</span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a>    <span class="n">neighbours</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
-</span><span id="L-31"><a href="#L-31"><span class="linenos">31</span></a>    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">CODES</span><span class="o">=</span><span class="n">neighbours</span><span class="p">,</span><span class="o">**</span><span class="nb">dict</span><span class="p">([[</span><span class="n">k</span><span class="p">,</span><span class="n">get_value</span><span class="p">(</span><span class="n">neighbours</span><span class="p">[</span><span class="n">v</span><span class="p">])]</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">nstats</span><span class="o">.</span><span class="n">items</span><span class="p">()]))</span>
-</span><span id="L-32"><a href="#L-32"><span class="linenos">32</span></a>
-</span><span id="L-33"><a href="#L-33"><span class="linenos">33</span></a>    
-</span><span id="L-34"><a href="#L-34"><span class="linenos">34</span></a>
-</span><span id="L-35"><a href="#L-35"><span class="linenos">35</span></a><span class="sd">&#39;&#39;&#39; End Neighbouring Functions &#39;&#39;&#39;</span>
+</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a><span class="sd">    output: ::dict:: The values for the region</span>
+</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a><span class="sd">    ```</span>
+</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a><span class="sd">    &#39;&#39;&#39;</span> 
+</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a>    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">CODE</span><span class="o">=</span><span class="n">code</span><span class="p">,</span><span class="n">NAME</span> <span class="o">=</span> <span class="n">names</span><span class="p">[</span><span class="n">code</span><span class="p">],</span> <span class="n">val</span><span class="o">=</span><span class="s1">&#39;WHAT IS THIS VALUE&#39;</span><span class="p">)</span>
+</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a>
+</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a>
+</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a><span class="n">nstats</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;last&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a><span class="s2">&quot;penultimate&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>
+</span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a><span class="s2">&quot;second&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a><span class="s2">&quot;top&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a>
+</span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a>
+</span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a><span class="k">def</span> <span class="nf">get_neigbours</span><span class="p">(</span><span class="n">row</span><span class="p">:</span><span class="nb">list</span><span class="p">):</span>
+</span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a>    <span class="sd">&#39;&#39;&#39; </span>
+</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a><span class="sd">    Gets the neigbours for regions and populates the aray with their values.</span>
+</span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a><span class="sd">    This follows the format provided in the nstats variable. </span>
+</span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a><span class="sd">```</span>
+</span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a><span class="sd">    input: ::list:: Ranked list of neighbours</span>
+</span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a><span class="sd">    output: ::dict::</span>
+</span><span id="L-31"><a href="#L-31"><span class="linenos">31</span></a><span class="sd">    ```</span>
+</span><span id="L-32"><a href="#L-32"><span class="linenos">32</span></a><span class="sd">    &#39;&#39;&#39;</span>
+</span><span id="L-33"><a href="#L-33"><span class="linenos">33</span></a>    <span class="n">neighbours</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+</span><span id="L-34"><a href="#L-34"><span class="linenos">34</span></a>    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">CODES</span><span class="o">=</span><span class="n">neighbours</span><span class="p">,</span><span class="o">**</span><span class="nb">dict</span><span class="p">([[</span><span class="n">k</span><span class="p">,</span><span class="n">get_value</span><span class="p">(</span><span class="n">neighbours</span><span class="p">[</span><span class="n">v</span><span class="p">])]</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">nstats</span><span class="o">.</span><span class="n">items</span><span class="p">()]))</span>
+</span><span id="L-35"><a href="#L-35"><span class="linenos">35</span></a>
+</span><span id="L-36"><a href="#L-36"><span class="linenos">36</span></a>    
+</span><span id="L-37"><a href="#L-37"><span class="linenos">37</span></a>
+</span><span id="L-38"><a href="#L-38"><span class="linenos">38</span></a><span class="sd">&#39;&#39;&#39; End Neighbouring Functions &#39;&#39;&#39;</span>
 </span></pre></div>
 
 
@@ -114,17 +117,22 @@
 </span><span id="get_value-9"><a href="#get_value-9"><span class="linenos"> 9</span></a>    <span class="sd">&#39;&#39;&#39; </span>
 </span><span id="get_value-10"><a href="#get_value-10"><span class="linenos">10</span></a><span class="sd">    Gets the values for regions.</span>
 </span><span id="get_value-11"><a href="#get_value-11"><span class="linenos">11</span></a><span class="sd">    This is calculated - yet unknown</span>
-</span><span id="get_value-12"><a href="#get_value-12"><span class="linenos">12</span></a>
+</span><span id="get_value-12"><a href="#get_value-12"><span class="linenos">12</span></a><span class="sd">```</span>
 </span><span id="get_value-13"><a href="#get_value-13"><span class="linenos">13</span></a><span class="sd">    input: Geocode of a region</span>
-</span><span id="get_value-14"><a href="#get_value-14"><span class="linenos">14</span></a><span class="sd">    &#39;&#39;&#39;</span> 
-</span><span id="get_value-15"><a href="#get_value-15"><span class="linenos">15</span></a>    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">CODE</span><span class="o">=</span><span class="n">code</span><span class="p">,</span><span class="n">NAME</span> <span class="o">=</span> <span class="n">names</span><span class="p">[</span><span class="n">code</span><span class="p">],</span> <span class="n">val</span><span class="o">=</span><span class="s1">&#39;WHAT IS THIS VALUE&#39;</span><span class="p">)</span>
+</span><span id="get_value-14"><a href="#get_value-14"><span class="linenos">14</span></a><span class="sd">    output: ::dict:: The values for the region</span>
+</span><span id="get_value-15"><a href="#get_value-15"><span class="linenos">15</span></a><span class="sd">    ```</span>
+</span><span id="get_value-16"><a href="#get_value-16"><span class="linenos">16</span></a><span class="sd">    &#39;&#39;&#39;</span> 
+</span><span id="get_value-17"><a href="#get_value-17"><span class="linenos">17</span></a>    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">CODE</span><span class="o">=</span><span class="n">code</span><span class="p">,</span><span class="n">NAME</span> <span class="o">=</span> <span class="n">names</span><span class="p">[</span><span class="n">code</span><span class="p">],</span> <span class="n">val</span><span class="o">=</span><span class="s1">&#39;WHAT IS THIS VALUE&#39;</span><span class="p">)</span>
 </span></pre></div>
 
 
             <div class="docstring"><p>Gets the values for regions.
-This is calculated - yet unknown</p>
+    This is calculated - yet unknown</p>
 
-<p>input: Geocode of a region</p>
+<pre><code>    input: Geocode of a region
+    output: ::dict:: The values for the region
+   
+</code></pre>
 </div>
 
 
@@ -140,23 +148,27 @@ This is calculated - yet unknown</p>
 
     </div>
     <a class="headerlink" href="#get_neigbours"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="get_neigbours-24"><a href="#get_neigbours-24"><span class="linenos">24</span></a><span class="k">def</span> <span class="nf">get_neigbours</span><span class="p">(</span><span class="n">row</span><span class="p">:</span><span class="nb">list</span><span class="p">):</span>
-</span><span id="get_neigbours-25"><a href="#get_neigbours-25"><span class="linenos">25</span></a>    <span class="sd">&#39;&#39;&#39; </span>
-</span><span id="get_neigbours-26"><a href="#get_neigbours-26"><span class="linenos">26</span></a><span class="sd">    Gets the neigbours for regions and populates the aray with their values.</span>
-</span><span id="get_neigbours-27"><a href="#get_neigbours-27"><span class="linenos">27</span></a><span class="sd">    This follows the format provided in the nstats variable. </span>
-</span><span id="get_neigbours-28"><a href="#get_neigbours-28"><span class="linenos">28</span></a>
-</span><span id="get_neigbours-29"><a href="#get_neigbours-29"><span class="linenos">29</span></a><span class="sd">    input: Ranked list of neighbours</span>
-</span><span id="get_neigbours-30"><a href="#get_neigbours-30"><span class="linenos">30</span></a><span class="sd">    </span>
-</span><span id="get_neigbours-31"><a href="#get_neigbours-31"><span class="linenos">31</span></a><span class="sd">    &#39;&#39;&#39;</span>
-</span><span id="get_neigbours-32"><a href="#get_neigbours-32"><span class="linenos">32</span></a>    <span class="n">neighbours</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
-</span><span id="get_neigbours-33"><a href="#get_neigbours-33"><span class="linenos">33</span></a>    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">CODES</span><span class="o">=</span><span class="n">neighbours</span><span class="p">,</span><span class="o">**</span><span class="nb">dict</span><span class="p">([[</span><span class="n">k</span><span class="p">,</span><span class="n">get_value</span><span class="p">(</span><span class="n">neighbours</span><span class="p">[</span><span class="n">v</span><span class="p">])]</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">nstats</span><span class="o">.</span><span class="n">items</span><span class="p">()]))</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="get_neigbours-26"><a href="#get_neigbours-26"><span class="linenos">26</span></a><span class="k">def</span> <span class="nf">get_neigbours</span><span class="p">(</span><span class="n">row</span><span class="p">:</span><span class="nb">list</span><span class="p">):</span>
+</span><span id="get_neigbours-27"><a href="#get_neigbours-27"><span class="linenos">27</span></a>    <span class="sd">&#39;&#39;&#39; </span>
+</span><span id="get_neigbours-28"><a href="#get_neigbours-28"><span class="linenos">28</span></a><span class="sd">    Gets the neigbours for regions and populates the aray with their values.</span>
+</span><span id="get_neigbours-29"><a href="#get_neigbours-29"><span class="linenos">29</span></a><span class="sd">    This follows the format provided in the nstats variable. </span>
+</span><span id="get_neigbours-30"><a href="#get_neigbours-30"><span class="linenos">30</span></a><span class="sd">```</span>
+</span><span id="get_neigbours-31"><a href="#get_neigbours-31"><span class="linenos">31</span></a><span class="sd">    input: ::list:: Ranked list of neighbours</span>
+</span><span id="get_neigbours-32"><a href="#get_neigbours-32"><span class="linenos">32</span></a><span class="sd">    output: ::dict::</span>
+</span><span id="get_neigbours-33"><a href="#get_neigbours-33"><span class="linenos">33</span></a><span class="sd">    ```</span>
+</span><span id="get_neigbours-34"><a href="#get_neigbours-34"><span class="linenos">34</span></a><span class="sd">    &#39;&#39;&#39;</span>
+</span><span id="get_neigbours-35"><a href="#get_neigbours-35"><span class="linenos">35</span></a>    <span class="n">neighbours</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+</span><span id="get_neigbours-36"><a href="#get_neigbours-36"><span class="linenos">36</span></a>    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">CODES</span><span class="o">=</span><span class="n">neighbours</span><span class="p">,</span><span class="o">**</span><span class="nb">dict</span><span class="p">([[</span><span class="n">k</span><span class="p">,</span><span class="n">get_value</span><span class="p">(</span><span class="n">neighbours</span><span class="p">[</span><span class="n">v</span><span class="p">])]</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">nstats</span><span class="o">.</span><span class="n">items</span><span class="p">()]))</span>
 </span></pre></div>
 
 
             <div class="docstring"><p>Gets the neigbours for regions and populates the aray with their values.
-This follows the format provided in the nstats variable. </p>
+    This follows the format provided in the nstats variable. </p>
 
-<p>input: Ranked list of neighbours</p>
+<pre><code>    input: ::list:: Ranked list of neighbours
+    output: ::dict::
+   
+</code></pre>
 </div>
 
 
