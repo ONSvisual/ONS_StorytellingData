@@ -19,8 +19,9 @@ lad = lookups.neighbours.index.to_list()
 def get_population():
     ''' 
     Gets the population of the country from the MF tables for each year.
-
+```
     Returns: ::list:: [::dict:: population, ::dict:: population_delta]
+    ```
     '''
     population = {}
     for category in config.CATEGORIES:
@@ -49,9 +50,9 @@ def get_country_rank():
             3. Get country length
             4. Rank
             5. Recombine
-
+```
         returns ::dict:: {'PRIMARY':{'rankings','length'},'SECONDARY':{'rankings','length'}}
-    
+    ```
     '''
     country_rank = {}
     for category in config.CATEGORIES:
@@ -80,9 +81,10 @@ def get_country_rank():
 def rank_calculator(group):
     '''
     Number group items
-
+```
     input ::dataframe:: group
     output ::dict:: key == code, value == rank
+    ```
     '''
     dummy = group.sort_values(0)[0]
     return dict_zip(dict(zip(dummy.index,range(1,len(dummy)+1))))
@@ -90,8 +92,10 @@ def rank_calculator(group):
 def get_rankings(grain):
     ''' 
     Gets the rankings for the given category and grain.
-
+```
     input: ::str:: grain
+    output: rank
+    ```
     '''
     rank = {}
     for cat in config.CATEGORIES:    

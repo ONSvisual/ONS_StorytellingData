@@ -32,7 +32,8 @@ def get_pyramid_data():
     Load the pyramids and split into sex, and years
 
     ```
-    returns ::dict::
+    returns ::dict:: 
+    ```
     
     '''
     global cols
@@ -70,6 +71,16 @@ pyramid_data = get_pyramid_data()
 
 
 def get_pyramids(code):
+
+    '''
+    A function which returns the pyramid data for a given LAD 
+    
+    ```
+    inputs: ::str:: code
+    outputs: ::dict:: pyramid data
+    ```
+    
+    '''
 
 
     pyramidd = dict([[i[0],[i[1][j].loc[code].values for j in [0,1]]] for i in pyramid_data.items()])
