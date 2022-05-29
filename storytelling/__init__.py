@@ -9,9 +9,14 @@ This pade depicts the __init__.py file.
 
 from . import config
 from . import lookups
-from .population import get_LA_population
+from .population import get_population
 from .neighbours import get_neigbours
 from .pyramid import get_pyramids
+from .density import get_density,get_pitches
+from .country_region import region_change, country_change, country_pyramids, rheadlines, cheadlines
+from .ageband import get_agegroups,agebands
+from .config import nest_select
+
 # __all__ = [lookups,get_value','get_neigbours
 
 

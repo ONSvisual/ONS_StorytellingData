@@ -3,9 +3,13 @@ The processing file for all things population based.
 
 '''
 from . import config
+from . import lookups   
+from .density import get_density
 # import config
+# import .config
+# import .lookups
 import pandas as pd
-from . import lookups
+
 
 
 
@@ -16,7 +20,7 @@ lad = lookups.neighbours.index.to_list()
 
 ####### Functions ########
 
-def get_population():
+def get_population_data():
     ''' 
     Gets the population of the country from the MF tables for each year.
 ```
@@ -29,7 +33,7 @@ def get_population():
         mf = pd.read_csv(''.join([config.CSVTABLES,getattr(config,category),config.simpletable['mf'],'.csv']),index_col=0)
         total_population = mf.sum(axis=1)
 
-        population[category] = total_population
+        population[category] = total_population.astype(int)
 
     population_diff = (population['SECONDARY'] - population['PRIMARY'])
     population_delta =  population_diff/population['PRIMARY']*100
@@ -56,8 +60,8 @@ def get_country_rank():
     '''
     country_rank = {}
     for category in config.CATEGORIES:
-
-        ordered = sorted(lad, key=lambda d: population[category].loc[d] )  
+        #  sort by descending by multiplying key by -1
+        ordered = sorted(lad, key=lambda d: -population[category].loc[d])  
         total = {}
         result = []
 
@@ -120,35 +124,62 @@ def all_here(df,group,area,code):
 
 
 
-def get_LA_population(code):
+
+
+
+
+def get_population(code,LA=True):
     '''
     Gets the local authority statistics for the given code.
 
     ```
     input: ::str:: code
+           ::bool:: LA (default True) - is it a local authority or not?
     output: ::dict:: local authority
     ```
     '''
 
 
-    if code[0] == 'E':country = 'England'
-    else:country = 'Wales'
-
-
-    ABS = {config.PRIMARY_NAME:pop_group['PRIMARY'].loc[code,0], config.SECONDARY_NAME:pop_group['SECONDARY'].loc[code,0]}
+    ABS = {config.PRIMARY_NAME:population['PRIMARY'].loc[code], config.SECONDARY_NAME:population['SECONDARY'].loc[code]}
 
     ABS_CHANGE = {f'FROM{config.PRIMARY_NAME[1:]}TO{config.SECONDARY_NAME[1:]}':int(population_diff[code])}
 
     PC_CHANGE = {f'FROM{config.PRIMARY_NAME[1:]}TO{config.SECONDARY_NAME[1:]}':'%.2f'%population_delta[code]}
 
+    if LA:
 
-    COUNTRY_RANK = {config.PRIMARY_NAME:all_here(country_rank,'PRIMARY',country,code),
-    config.SECONDARY_NAME:all_here(country_rank,'SECONDARY',country,code)
-    }
+        if code[0] == 'E':country = 'England'
+        else:country = 'Wales'
 
-    return dict(ABS=ABS,ABS_CHANGE=ABS_CHANGE,PC_CHANGE=PC_CHANGE,COUNTRY_RANK=COUNTRY_RANK)
+        COUNTRY_RANK = {config.PRIMARY_NAME:all_here(country_rank,'PRIMARY',country,code),
+        config.SECONDARY_NAME:all_here(country_rank,'SECONDARY',country,code)
+        }
+    
+        return dict(ABS=ABS,ABS_CHANGE=ABS_CHANGE,PC_CHANGE=PC_CHANGE,COUNTRY_RANK=COUNTRY_RANK,**get_density(code))
+
+    else:
+        return dict(ABS=ABS,ABS_CHANGE=ABS_CHANGE,PC_CHANGE=PC_CHANGE)
 
 
+def group_classification(population):
+    ''' 
+    Insert group classification data into the population dataframe.
+
+    ```
+    input: ::df:: population
+    output: ::df::
+    '''
+
+    pop_group = {}
+    for cat in config.CATEGORIES:
+                
+        ponly = pd.DataFrame(population[cat].loc[lad]).astype(int)
+        ponly['REGION'] = [lookups.lad2rgn[i] for i in ponly.index]
+        ponly['COUNTRY'] = [i[0] for i in ponly.index]
+
+        pop_group[cat] = ponly
+    
+    return pop_group
 
 
 
@@ -157,23 +188,10 @@ def get_LA_population(code):
 
 
 
-population,population_delta,population_diff = get_population()
+population,population_delta,population_diff = get_population_data()
 country_rank = get_country_rank()
+pop_group = group_classification(population)
 
-
-
-
-pop_group = {}
-for cat in config.CATEGORIES:
-            
-    ponly = pd.DataFrame(population[cat].loc[lad]).astype(int)
-    ponly['REGION'] = [lookups.lad2rgn[i] for i in ponly.index]
-    ponly['COUNTRY'] = [i[0] for i in ponly.index]
-
-    pop_group[cat] = ponly
-
-
-# LAD
 
 
 

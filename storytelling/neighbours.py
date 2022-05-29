@@ -2,7 +2,7 @@
 ''' Neighbouring Functions '''
 # from .population import population
 from .lookups import names
-
+from .population import population_delta
 
 def get_value(code:str):
     ''' 
@@ -13,8 +13,11 @@ def get_value(code:str):
     output: ::dict:: The values for the region
     ```
     ''' 
-    return dict(CODE=code,NAME = names[code], val='WHAT IS THIS VALUE')
+    print('neightbouring value - % change in population?')
 
+    return dict(CODE=code,NAME = names[code], val=population_delta[code])
+
+    
 
 nstats = {"last": -1,
 "penultimate": -2,
@@ -32,7 +35,7 @@ def get_neigbours(row:list):
     ```
     '''
     neighbours = row.to_list()
-    return dict(CODES=neighbours,**dict([[k,get_value(neighbours[v])] for k,v in nstats.items()]))
+    return dict(CODES=neighbours,PC_CHANGE=dict([[k,get_value(neighbours[v])] for k,v in nstats.items()]))
 
     
 
