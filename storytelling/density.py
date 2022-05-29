@@ -10,7 +10,7 @@ import copy
 
 
 def parent_region(x):
-    ''' 
+    '''
     Gets the parent region of the LAD code.
 
     ```
@@ -23,7 +23,7 @@ def parent_region(x):
 
 
 def get_density_data():
-    ''' 
+    '''
         Gets the density of the country based on the PO4 tables for each year.
 
         This returns a groupby dataframe with a multiindex (region,code) and density as a value.
@@ -40,7 +40,7 @@ def get_density_data():
         # density tables
         dty = pd.read_csv(''.join([config.CSVTABLES,getattr(config,category),config.simpletable['density'],'.csv']),index_col=0)
 
-        # add region keys. 
+        # add region keys.
         dty = pd.DataFrame(dty[dty.columns[-1]].values,index = dty.index)
         dty.columns=['density']
 
@@ -48,7 +48,7 @@ def get_density_data():
         # country extremes
         din = copy.deepcopy(dty).sort_values('density')
         #  skip zero valued
-        din = din[din.density>0] 
+        din = din[din.density>0]
         din['country'] = din.index.map(lambda x:x[0])
         eextremes[category] = din.groupby(by=['country']).apply(lambda x: x.sort_values(by='density').iloc[[0,-1]] )['density'].astype(int)
 
@@ -66,7 +66,7 @@ density,extremes = get_density_data()
 
 
 def get_density(code):
-    ''' 
+    '''
     Gets the density of the country based on the PO$ tables for each year.
 
     ```
@@ -84,14 +84,12 @@ def get_density(code):
         region = lad2rgn[code]
         groupdf = copy.deepcopy(density)[category].loc[region]
 
-        print('pp', groupdf)
-
         REGION_RANK['DENSITY'][getattr(config,category+'_NAME')]= {
             # reverse direction by subtracting from n items
                     "here": len(groupdf) - list(groupdf.index.values).index(code),
                     "all": len(groupdf)
                 }
-        
+
 
         DENSITY['DENSITY' + getattr(config,category+'_NAME')[1:] ] = density[category].loc[:,code].values[0]
 
@@ -107,16 +105,16 @@ def get_density(code):
 def get_pitches(code):
 
     '''
-    Calculate the football pitch extremes for a country. 
-    This is done by dividing the density by 180 
+    Calculate the football pitch extremes for a country.
+    This is done by dividing the density by 180
 
-    Currently this is done for the latest dataset only. 
+    Currently this is done for the latest dataset only.
 
     ```
     input ::str:: code
     returns ::dict:: football pitch extremes
     ```
-    
+
     '''
 
     global extremes
@@ -139,5 +137,3 @@ def get_pitches(code):
                     "PEOPLE_PER_FOOOTY_PITCH": '%.4f'%(values[0]/180 )
                 }
             }
-
-
