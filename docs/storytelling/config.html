@@ -29,6 +29,19 @@
 
 
 
+        <h2>API Documentation</h2>
+            <ul class="memberlist">
+            <li>
+                    <a class="function" href="#diff">diff</a>
+            </li>
+            <li>
+                    <a class="function" href="#nest_select">nest_select</a>
+            </li>
+            <li>
+                    <a class="function" href="#nest_df">nest_df</a>
+            </li>
+    </ul>
+
 
 
         <a class="attribution" title="pdoc: Python API documentation generator" href="https://pdoc.dev" target="_blank">
@@ -60,61 +73,235 @@
 
                         <label class="view-source-button" for="config-view-source"><span>View Source</span></label>
 
-                        <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos"> 1</span></a><span class="sd">&#39;&#39;&#39;</span>
-</span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a><span class="sd">This file contains the configuration for the project.</span>
-</span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a>
-</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="sd">- outfile</span>
-</span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a><span class="sd">- directory</span>
-</span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a><span class="sd">- excel to csv converted directory</span>
-</span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a><span class="sd">- primary and secondary year file names</span>
-</span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a><span class="sd">- translation of pnumbers to something readable</span>
-</span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a>
-</span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a>
-</span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a><span class="sd">click view source to see the code.</span>
-</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a>
-</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a><span class="sd">&#39;&#39;&#39;</span>
-</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a>
-</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a><span class="n">testing</span> <span class="o">=</span> <span class="kc">False</span>
-</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a><span class="nb">print</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
-</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a>
-</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a><span class="k">if</span> <span class="n">testing</span><span class="p">:</span> <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;../&#39;</span>
-</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a><span class="k">else</span><span class="p">:</span> <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;./&#39;</span>
-</span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>
-</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a>
-</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a><span class="kn">import</span> <span class="nn">re</span>
-</span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a>
-</span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a><span class="n">OUTFILE</span> <span class="o">=</span>  <span class="n">prefix</span> <span class="o">+</span> <span class="s1">&#39;output.json&#39;</span>
-</span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a>
-</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a><span class="n">DIR</span> <span class="o">=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s1">&#39;data/&#39;</span>
-</span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a><span class="n">CSVTABLES</span> <span class="o">=</span> <span class="n">DIR</span> <span class="o">+</span> <span class="s1">&#39;fixedformatting/&#39;</span>
-</span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a>
-</span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a><span class="n">PRIMARY</span> <span class="o">=</span> <span class="s1">&#39;census2011_Table-&#39;</span>
-</span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a><span class="n">SECONDARY</span> <span class="o">=</span> <span class="s1">&#39;midyear2020_rounded_Table-&#39;</span>
-</span><span id="L-31"><a href="#L-31"><span class="linenos">31</span></a>
-</span><span id="L-32"><a href="#L-32"><span class="linenos">32</span></a><span class="n">PRIMARY_NAME</span> <span class="o">=</span> <span class="s1">&#39;Y&#39;</span> <span class="o">+</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;20(\d</span><span class="si">{2}</span><span class="s1">)&#39;</span><span class="p">,</span><span class="n">PRIMARY</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-</span><span id="L-33"><a href="#L-33"><span class="linenos">33</span></a><span class="n">SECONDARY_NAME</span> <span class="o">=</span> <span class="s1">&#39;Y&#39;</span> <span class="o">+</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;20(\d</span><span class="si">{2}</span><span class="s1">)&#39;</span><span class="p">,</span><span class="n">SECONDARY</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-</span><span id="L-34"><a href="#L-34"><span class="linenos">34</span></a>
-</span><span id="L-35"><a href="#L-35"><span class="linenos">35</span></a><span class="n">CATEGORIES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;PRIMARY&#39;</span><span class="p">,</span><span class="s1">&#39;SECONDARY&#39;</span><span class="p">]</span>
-</span><span id="L-36"><a href="#L-36"><span class="linenos">36</span></a>
-</span><span id="L-37"><a href="#L-37"><span class="linenos">37</span></a><span class="n">simpletable</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="L-38"><a href="#L-38"><span class="linenos">38</span></a>    <span class="s1">&#39;mf&#39;</span> <span class="p">:</span> <span class="s1">&#39;P01&#39;</span><span class="p">,</span>
-</span><span id="L-39"><a href="#L-39"><span class="linenos">39</span></a>    <span class="s1">&#39;agebands&#39;</span> <span class="p">:</span> <span class="s1">&#39;P02&#39;</span><span class="p">,</span>
-</span><span id="L-40"><a href="#L-40"><span class="linenos">40</span></a>    <span class="s1">&#39;pyramid&#39;</span> <span class="p">:</span> <span class="s1">&#39;P03&#39;</span><span class="p">,</span>
-</span><span id="L-41"><a href="#L-41"><span class="linenos">41</span></a>    <span class="s1">&#39;density&#39;</span> <span class="p">:</span> <span class="s1">&#39;P04&#39;</span><span class="p">,</span>
-</span><span id="L-42"><a href="#L-42"><span class="linenos">42</span></a><span class="p">}</span>
-</span><span id="L-43"><a href="#L-43"><span class="linenos">43</span></a>
-</span><span id="L-44"><a href="#L-44"><span class="linenos">44</span></a>
-</span><span id="L-45"><a href="#L-45"><span class="linenos">45</span></a>
-</span><span id="L-46"><a href="#L-46"><span class="linenos">46</span></a>
-</span><span id="L-47"><a href="#L-47"><span class="linenos">47</span></a>
-</span><span id="L-48"><a href="#L-48"><span class="linenos">48</span></a><span class="c1"># &#39;&#39;&#39;</span>
-</span><span id="L-49"><a href="#L-49"><span class="linenos">49</span></a><span class="c1"># %load_ext autoreload</span>
-</span><span id="L-50"><a href="#L-50"><span class="linenos">50</span></a><span class="c1"># %autoreload 2</span>
-</span><span id="L-51"><a href="#L-51"><span class="linenos">51</span></a><span class="c1"># &#39;&#39;&#39;</span>
+                        <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos">  1</span></a><span class="sd">&#39;&#39;&#39;</span>
+</span><span id="L-2"><a href="#L-2"><span class="linenos">  2</span></a><span class="sd">This file contains the configuration for the project.</span>
+</span><span id="L-3"><a href="#L-3"><span class="linenos">  3</span></a>
+</span><span id="L-4"><a href="#L-4"><span class="linenos">  4</span></a><span class="sd">- outfile</span>
+</span><span id="L-5"><a href="#L-5"><span class="linenos">  5</span></a><span class="sd">- directory</span>
+</span><span id="L-6"><a href="#L-6"><span class="linenos">  6</span></a><span class="sd">- excel to csv converted directory</span>
+</span><span id="L-7"><a href="#L-7"><span class="linenos">  7</span></a><span class="sd">- primary and secondary year file names</span>
+</span><span id="L-8"><a href="#L-8"><span class="linenos">  8</span></a><span class="sd">- translation of pnumbers to something readable</span>
+</span><span id="L-9"><a href="#L-9"><span class="linenos">  9</span></a>
+</span><span id="L-10"><a href="#L-10"><span class="linenos"> 10</span></a>
+</span><span id="L-11"><a href="#L-11"><span class="linenos"> 11</span></a><span class="sd">click view source to see the code.</span>
+</span><span id="L-12"><a href="#L-12"><span class="linenos"> 12</span></a>
+</span><span id="L-13"><a href="#L-13"><span class="linenos"> 13</span></a><span class="sd">&#39;&#39;&#39;</span>
+</span><span id="L-14"><a href="#L-14"><span class="linenos"> 14</span></a>
+</span><span id="L-15"><a href="#L-15"><span class="linenos"> 15</span></a><span class="n">testing</span> <span class="o">=</span> <span class="kc">False</span>
+</span><span id="L-16"><a href="#L-16"><span class="linenos"> 16</span></a><span class="nb">print</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</span><span id="L-17"><a href="#L-17"><span class="linenos"> 17</span></a>
+</span><span id="L-18"><a href="#L-18"><span class="linenos"> 18</span></a><span class="k">if</span> <span class="n">testing</span><span class="p">:</span> <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;../&#39;</span>
+</span><span id="L-19"><a href="#L-19"><span class="linenos"> 19</span></a><span class="k">else</span><span class="p">:</span> <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;./&#39;</span>
+</span><span id="L-20"><a href="#L-20"><span class="linenos"> 20</span></a>
+</span><span id="L-21"><a href="#L-21"><span class="linenos"> 21</span></a>
+</span><span id="L-22"><a href="#L-22"><span class="linenos"> 22</span></a><span class="kn">import</span> <span class="nn">re</span><span class="o">,</span><span class="nn">copy</span>
+</span><span id="L-23"><a href="#L-23"><span class="linenos"> 23</span></a>
+</span><span id="L-24"><a href="#L-24"><span class="linenos"> 24</span></a><span class="n">OUTFILE</span> <span class="o">=</span>  <span class="n">prefix</span> <span class="o">+</span> <span class="s1">&#39;output.json&#39;</span>
+</span><span id="L-25"><a href="#L-25"><span class="linenos"> 25</span></a><span class="n">OUTDIR</span> <span class="o">=</span> <span class="s1">&#39;./output&#39;</span>
+</span><span id="L-26"><a href="#L-26"><span class="linenos"> 26</span></a>
+</span><span id="L-27"><a href="#L-27"><span class="linenos"> 27</span></a><span class="n">DIR</span> <span class="o">=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s1">&#39;data/&#39;</span>
+</span><span id="L-28"><a href="#L-28"><span class="linenos"> 28</span></a><span class="n">CSVTABLES</span> <span class="o">=</span> <span class="n">DIR</span> <span class="o">+</span> <span class="s1">&#39;fixedformatting/&#39;</span>
+</span><span id="L-29"><a href="#L-29"><span class="linenos"> 29</span></a>
+</span><span id="L-30"><a href="#L-30"><span class="linenos"> 30</span></a><span class="n">PRIMARY</span> <span class="o">=</span> <span class="s1">&#39;census2011_Table-&#39;</span>
+</span><span id="L-31"><a href="#L-31"><span class="linenos"> 31</span></a><span class="n">SECONDARY</span> <span class="o">=</span> <span class="s1">&#39;midyear2020_rounded_Table-&#39;</span>
+</span><span id="L-32"><a href="#L-32"><span class="linenos"> 32</span></a>
+</span><span id="L-33"><a href="#L-33"><span class="linenos"> 33</span></a><span class="n">PY</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;20(\d</span><span class="si">{2}</span><span class="s1">)&#39;</span><span class="p">,</span><span class="n">PRIMARY</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+</span><span id="L-34"><a href="#L-34"><span class="linenos"> 34</span></a><span class="n">SY</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;20(\d</span><span class="si">{2}</span><span class="s1">)&#39;</span><span class="p">,</span><span class="n">SECONDARY</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+</span><span id="L-35"><a href="#L-35"><span class="linenos"> 35</span></a>
+</span><span id="L-36"><a href="#L-36"><span class="linenos"> 36</span></a><span class="n">PRIMARY_NAME</span> <span class="o">=</span> <span class="s1">&#39;Y&#39;</span> <span class="o">+</span> <span class="n">PY</span>
+</span><span id="L-37"><a href="#L-37"><span class="linenos"> 37</span></a><span class="n">SECONDARY_NAME</span> <span class="o">=</span> <span class="s1">&#39;Y&#39;</span> <span class="o">+</span> <span class="n">SY</span>
+</span><span id="L-38"><a href="#L-38"><span class="linenos"> 38</span></a>
+</span><span id="L-39"><a href="#L-39"><span class="linenos"> 39</span></a>
+</span><span id="L-40"><a href="#L-40"><span class="linenos"> 40</span></a><span class="n">CATEGORIES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;PRIMARY&#39;</span><span class="p">,</span><span class="s1">&#39;SECONDARY&#39;</span><span class="p">]</span>
+</span><span id="L-41"><a href="#L-41"><span class="linenos"> 41</span></a>
+</span><span id="L-42"><a href="#L-42"><span class="linenos"> 42</span></a><span class="n">simpletable</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="L-43"><a href="#L-43"><span class="linenos"> 43</span></a>    <span class="s1">&#39;mf&#39;</span> <span class="p">:</span> <span class="s1">&#39;P01&#39;</span><span class="p">,</span>
+</span><span id="L-44"><a href="#L-44"><span class="linenos"> 44</span></a>    <span class="s1">&#39;agebands&#39;</span> <span class="p">:</span> <span class="s1">&#39;P02&#39;</span><span class="p">,</span>
+</span><span id="L-45"><a href="#L-45"><span class="linenos"> 45</span></a>    <span class="s1">&#39;pyramid&#39;</span> <span class="p">:</span> <span class="s1">&#39;P03&#39;</span><span class="p">,</span>
+</span><span id="L-46"><a href="#L-46"><span class="linenos"> 46</span></a>    <span class="s1">&#39;density&#39;</span> <span class="p">:</span> <span class="s1">&#39;P04&#39;</span><span class="p">,</span>
+</span><span id="L-47"><a href="#L-47"><span class="linenos"> 47</span></a><span class="p">}</span>
+</span><span id="L-48"><a href="#L-48"><span class="linenos"> 48</span></a>
+</span><span id="L-49"><a href="#L-49"><span class="linenos"> 49</span></a>
+</span><span id="L-50"><a href="#L-50"><span class="linenos"> 50</span></a><span class="k">def</span> <span class="nf">diff</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="nb">list</span><span class="p">):</span>
+</span><span id="L-51"><a href="#L-51"><span class="linenos"> 51</span></a>    <span class="sd">&#39;&#39;&#39;Subtraction function </span>
+</span><span id="L-52"><a href="#L-52"><span class="linenos"> 52</span></a><span class="sd">    ```input: ::list::</span>
+</span><span id="L-53"><a href="#L-53"><span class="linenos"> 53</span></a><span class="sd">    output: ::element::</span>
+</span><span id="L-54"><a href="#L-54"><span class="linenos"> 54</span></a><span class="sd">    ```</span>
+</span><span id="L-55"><a href="#L-55"><span class="linenos"> 55</span></a><span class="sd">    &#39;&#39;&#39;</span>
+</span><span id="L-56"><a href="#L-56"><span class="linenos"> 56</span></a>    <span class="n">dummy</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span><span id="L-57"><a href="#L-57"><span class="linenos"> 57</span></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+</span><span id="L-58"><a href="#L-58"><span class="linenos"> 58</span></a>        <span class="n">dummy</span> <span class="o">-=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span><span id="L-59"><a href="#L-59"><span class="linenos"> 59</span></a>    <span class="k">return</span> <span class="n">dummy</span> 
+</span><span id="L-60"><a href="#L-60"><span class="linenos"> 60</span></a>
+</span><span id="L-61"><a href="#L-61"><span class="linenos"> 61</span></a><span class="k">def</span> <span class="nf">nest_select</span><span class="p">(</span><span class="n">elements</span><span class="p">,</span><span class="n">code</span><span class="p">):</span>
+</span><span id="L-62"><a href="#L-62"><span class="linenos"> 62</span></a>    <span class="sd">&#39;&#39;&#39;</span>
+</span><span id="L-63"><a href="#L-63"><span class="linenos"> 63</span></a><span class="sd">    selects item from nested dict</span>
+</span><span id="L-64"><a href="#L-64"><span class="linenos"> 64</span></a><span class="sd">    Max 4 layers deep. </span>
+</span><span id="L-65"><a href="#L-65"><span class="linenos"> 65</span></a><span class="sd">    &#39;&#39;&#39;</span>
+</span><span id="L-66"><a href="#L-66"><span class="linenos"> 66</span></a>    <span class="n">ele</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">elements</span><span class="p">)</span>
+</span><span id="L-67"><a href="#L-67"><span class="linenos"> 67</span></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ele</span><span class="p">:</span>
+</span><span id="L-68"><a href="#L-68"><span class="linenos"> 68</span></a>        <span class="k">try</span><span class="p">:</span><span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">code</span><span class="p">]</span>
+</span><span id="L-69"><a href="#L-69"><span class="linenos"> 69</span></a>        <span class="k">except</span> <span class="ne">KeyError</span> <span class="ow">or</span> <span class="ne">AttributeError</span><span class="p">:</span>
+</span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a>            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+</span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a>                <span class="k">try</span><span class="p">:</span> <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span> <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">code</span><span class="p">]</span>
+</span><span id="L-72"><a href="#L-72"><span class="linenos"> 72</span></a>                <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+</span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a>                    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]:</span>
+</span><span id="L-74"><a href="#L-74"><span class="linenos"> 74</span></a>                        <span class="k">try</span><span class="p">:</span> <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">][</span><span class="n">code</span><span class="p">]</span>
+</span><span id="L-75"><a href="#L-75"><span class="linenos"> 75</span></a>                        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+</span><span id="L-76"><a href="#L-76"><span class="linenos"> 76</span></a>                            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;missing&#39;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">code</span><span class="p">)</span>
+</span><span id="L-77"><a href="#L-77"><span class="linenos"> 77</span></a>                            <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span id="L-78"><a href="#L-78"><span class="linenos"> 78</span></a>                        
+</span><span id="L-79"><a href="#L-79"><span class="linenos"> 79</span></a>
+</span><span id="L-80"><a href="#L-80"><span class="linenos"> 80</span></a>    <span class="k">return</span> <span class="n">ele</span> 
+</span><span id="L-81"><a href="#L-81"><span class="linenos"> 81</span></a>
+</span><span id="L-82"><a href="#L-82"><span class="linenos"> 82</span></a><span class="k">def</span> <span class="nf">nest_df</span><span class="p">(</span><span class="n">elements</span><span class="p">,</span><span class="n">code</span><span class="p">):</span>
+</span><span id="L-83"><a href="#L-83"><span class="linenos"> 83</span></a>    <span class="sd">&#39;&#39;&#39;</span>
+</span><span id="L-84"><a href="#L-84"><span class="linenos"> 84</span></a><span class="sd">    selects item from nested dataframe</span>
+</span><span id="L-85"><a href="#L-85"><span class="linenos"> 85</span></a><span class="sd">    Max 4 layers deep. </span>
+</span><span id="L-86"><a href="#L-86"><span class="linenos"> 86</span></a><span class="sd">    &#39;&#39;&#39;</span>
+</span><span id="L-87"><a href="#L-87"><span class="linenos"> 87</span></a>    <span class="n">ele</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">elements</span><span class="p">)</span>
+</span><span id="L-88"><a href="#L-88"><span class="linenos"> 88</span></a>
+</span><span id="L-89"><a href="#L-89"><span class="linenos"> 89</span></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ele</span><span class="p">:</span>
+</span><span id="L-90"><a href="#L-90"><span class="linenos"> 90</span></a>        <span class="k">try</span><span class="p">:</span><span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">code</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="L-91"><a href="#L-91"><span class="linenos"> 91</span></a>        <span class="k">except</span> <span class="ne">KeyError</span> <span class="ow">or</span> <span class="ne">AttributeError</span><span class="p">:</span>
+</span><span id="L-92"><a href="#L-92"><span class="linenos"> 92</span></a>            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+</span><span id="L-93"><a href="#L-93"><span class="linenos"> 93</span></a>                <span class="k">try</span><span class="p">:</span> <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span> <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">code</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="L-94"><a href="#L-94"><span class="linenos"> 94</span></a>                <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+</span><span id="L-95"><a href="#L-95"><span class="linenos"> 95</span></a>                    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]:</span>
+</span><span id="L-96"><a href="#L-96"><span class="linenos"> 96</span></a>                        <span class="k">try</span><span class="p">:</span> <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">code</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="L-97"><a href="#L-97"><span class="linenos"> 97</span></a>                        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+</span><span id="L-98"><a href="#L-98"><span class="linenos"> 98</span></a>                            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;missing&#39;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">code</span><span class="p">)</span>
+</span><span id="L-99"><a href="#L-99"><span class="linenos"> 99</span></a>                            <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span id="L-100"><a href="#L-100"><span class="linenos">100</span></a>                        
+</span><span id="L-101"><a href="#L-101"><span class="linenos">101</span></a>
+</span><span id="L-102"><a href="#L-102"><span class="linenos">102</span></a>    <span class="k">return</span> <span class="n">ele</span> 
+</span><span id="L-103"><a href="#L-103"><span class="linenos">103</span></a>
+</span><span id="L-104"><a href="#L-104"><span class="linenos">104</span></a>
+</span><span id="L-105"><a href="#L-105"><span class="linenos">105</span></a><span class="n">ENGLAND</span> <span class="o">=</span><span class="s1">&#39;E92000011&#39;</span>
+</span><span id="L-106"><a href="#L-106"><span class="linenos">106</span></a><span class="n">WALES</span> <span class="o">=</span> <span class="s1">&#39;W92000004&#39;</span>
+</span><span id="L-107"><a href="#L-107"><span class="linenos">107</span></a>
+</span><span id="L-108"><a href="#L-108"><span class="linenos">108</span></a>
+</span><span id="L-109"><a href="#L-109"><span class="linenos">109</span></a><span class="c1"># &#39;&#39;&#39;</span>
+</span><span id="L-110"><a href="#L-110"><span class="linenos">110</span></a><span class="c1"># %load_ext autoreload</span>
+</span><span id="L-111"><a href="#L-111"><span class="linenos">111</span></a><span class="c1"># %autoreload 2</span>
+</span><span id="L-112"><a href="#L-112"><span class="linenos">112</span></a><span class="c1"># &#39;&#39;&#39;</span>
 </span></pre></div>
 
 
             </section>
+                <section id="diff">
+                            <input id="diff-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">diff</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">x</span><span class="p">:</span> <span class="nb">list</span></span>)</span>
+
+                <label class="view-source-button" for="diff-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#diff"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="diff-51"><a href="#diff-51"><span class="linenos">51</span></a><span class="k">def</span> <span class="nf">diff</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="nb">list</span><span class="p">):</span>
+</span><span id="diff-52"><a href="#diff-52"><span class="linenos">52</span></a>    <span class="sd">&#39;&#39;&#39;Subtraction function </span>
+</span><span id="diff-53"><a href="#diff-53"><span class="linenos">53</span></a><span class="sd">    ```input: ::list::</span>
+</span><span id="diff-54"><a href="#diff-54"><span class="linenos">54</span></a><span class="sd">    output: ::element::</span>
+</span><span id="diff-55"><a href="#diff-55"><span class="linenos">55</span></a><span class="sd">    ```</span>
+</span><span id="diff-56"><a href="#diff-56"><span class="linenos">56</span></a><span class="sd">    &#39;&#39;&#39;</span>
+</span><span id="diff-57"><a href="#diff-57"><span class="linenos">57</span></a>    <span class="n">dummy</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span><span id="diff-58"><a href="#diff-58"><span class="linenos">58</span></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+</span><span id="diff-59"><a href="#diff-59"><span class="linenos">59</span></a>        <span class="n">dummy</span> <span class="o">-=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span><span id="diff-60"><a href="#diff-60"><span class="linenos">60</span></a>    <span class="k">return</span> <span class="n">dummy</span> 
+</span></pre></div>
+
+
+            <div class="docstring"><p>Subtraction function 
+<code>input: ::list::
+output: ::element::
+</code></p>
+</div>
+
+
+                </section>
+                <section id="nest_select">
+                            <input id="nest_select-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">nest_select</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">elements</span>, </span><span class="param"><span class="n">code</span></span>)</span>
+
+                <label class="view-source-button" for="nest_select-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#nest_select"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="nest_select-62"><a href="#nest_select-62"><span class="linenos">62</span></a><span class="k">def</span> <span class="nf">nest_select</span><span class="p">(</span><span class="n">elements</span><span class="p">,</span><span class="n">code</span><span class="p">):</span>
+</span><span id="nest_select-63"><a href="#nest_select-63"><span class="linenos">63</span></a>    <span class="sd">&#39;&#39;&#39;</span>
+</span><span id="nest_select-64"><a href="#nest_select-64"><span class="linenos">64</span></a><span class="sd">    selects item from nested dict</span>
+</span><span id="nest_select-65"><a href="#nest_select-65"><span class="linenos">65</span></a><span class="sd">    Max 4 layers deep. </span>
+</span><span id="nest_select-66"><a href="#nest_select-66"><span class="linenos">66</span></a><span class="sd">    &#39;&#39;&#39;</span>
+</span><span id="nest_select-67"><a href="#nest_select-67"><span class="linenos">67</span></a>    <span class="n">ele</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">elements</span><span class="p">)</span>
+</span><span id="nest_select-68"><a href="#nest_select-68"><span class="linenos">68</span></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ele</span><span class="p">:</span>
+</span><span id="nest_select-69"><a href="#nest_select-69"><span class="linenos">69</span></a>        <span class="k">try</span><span class="p">:</span><span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">code</span><span class="p">]</span>
+</span><span id="nest_select-70"><a href="#nest_select-70"><span class="linenos">70</span></a>        <span class="k">except</span> <span class="ne">KeyError</span> <span class="ow">or</span> <span class="ne">AttributeError</span><span class="p">:</span>
+</span><span id="nest_select-71"><a href="#nest_select-71"><span class="linenos">71</span></a>            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+</span><span id="nest_select-72"><a href="#nest_select-72"><span class="linenos">72</span></a>                <span class="k">try</span><span class="p">:</span> <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span> <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">code</span><span class="p">]</span>
+</span><span id="nest_select-73"><a href="#nest_select-73"><span class="linenos">73</span></a>                <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+</span><span id="nest_select-74"><a href="#nest_select-74"><span class="linenos">74</span></a>                    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]:</span>
+</span><span id="nest_select-75"><a href="#nest_select-75"><span class="linenos">75</span></a>                        <span class="k">try</span><span class="p">:</span> <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">][</span><span class="n">code</span><span class="p">]</span>
+</span><span id="nest_select-76"><a href="#nest_select-76"><span class="linenos">76</span></a>                        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+</span><span id="nest_select-77"><a href="#nest_select-77"><span class="linenos">77</span></a>                            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;missing&#39;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">code</span><span class="p">)</span>
+</span><span id="nest_select-78"><a href="#nest_select-78"><span class="linenos">78</span></a>                            <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span id="nest_select-79"><a href="#nest_select-79"><span class="linenos">79</span></a>                        
+</span><span id="nest_select-80"><a href="#nest_select-80"><span class="linenos">80</span></a>
+</span><span id="nest_select-81"><a href="#nest_select-81"><span class="linenos">81</span></a>    <span class="k">return</span> <span class="n">ele</span> 
+</span></pre></div>
+
+
+            <div class="docstring"><p>selects item from nested dict
+Max 4 layers deep.</p>
+</div>
+
+
+                </section>
+                <section id="nest_df">
+                            <input id="nest_df-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">nest_df</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">elements</span>, </span><span class="param"><span class="n">code</span></span>)</span>
+
+                <label class="view-source-button" for="nest_df-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#nest_df"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="nest_df-83"><a href="#nest_df-83"><span class="linenos"> 83</span></a><span class="k">def</span> <span class="nf">nest_df</span><span class="p">(</span><span class="n">elements</span><span class="p">,</span><span class="n">code</span><span class="p">):</span>
+</span><span id="nest_df-84"><a href="#nest_df-84"><span class="linenos"> 84</span></a>    <span class="sd">&#39;&#39;&#39;</span>
+</span><span id="nest_df-85"><a href="#nest_df-85"><span class="linenos"> 85</span></a><span class="sd">    selects item from nested dataframe</span>
+</span><span id="nest_df-86"><a href="#nest_df-86"><span class="linenos"> 86</span></a><span class="sd">    Max 4 layers deep. </span>
+</span><span id="nest_df-87"><a href="#nest_df-87"><span class="linenos"> 87</span></a><span class="sd">    &#39;&#39;&#39;</span>
+</span><span id="nest_df-88"><a href="#nest_df-88"><span class="linenos"> 88</span></a>    <span class="n">ele</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">elements</span><span class="p">)</span>
+</span><span id="nest_df-89"><a href="#nest_df-89"><span class="linenos"> 89</span></a>
+</span><span id="nest_df-90"><a href="#nest_df-90"><span class="linenos"> 90</span></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ele</span><span class="p">:</span>
+</span><span id="nest_df-91"><a href="#nest_df-91"><span class="linenos"> 91</span></a>        <span class="k">try</span><span class="p">:</span><span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">code</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="nest_df-92"><a href="#nest_df-92"><span class="linenos"> 92</span></a>        <span class="k">except</span> <span class="ne">KeyError</span> <span class="ow">or</span> <span class="ne">AttributeError</span><span class="p">:</span>
+</span><span id="nest_df-93"><a href="#nest_df-93"><span class="linenos"> 93</span></a>            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+</span><span id="nest_df-94"><a href="#nest_df-94"><span class="linenos"> 94</span></a>                <span class="k">try</span><span class="p">:</span> <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span> <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">code</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="nest_df-95"><a href="#nest_df-95"><span class="linenos"> 95</span></a>                <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+</span><span id="nest_df-96"><a href="#nest_df-96"><span class="linenos"> 96</span></a>                    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]:</span>
+</span><span id="nest_df-97"><a href="#nest_df-97"><span class="linenos"> 97</span></a>                        <span class="k">try</span><span class="p">:</span> <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">code</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="nest_df-98"><a href="#nest_df-98"><span class="linenos"> 98</span></a>                        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+</span><span id="nest_df-99"><a href="#nest_df-99"><span class="linenos"> 99</span></a>                            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;missing&#39;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">code</span><span class="p">)</span>
+</span><span id="nest_df-100"><a href="#nest_df-100"><span class="linenos">100</span></a>                            <span class="n">ele</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span id="nest_df-101"><a href="#nest_df-101"><span class="linenos">101</span></a>                        
+</span><span id="nest_df-102"><a href="#nest_df-102"><span class="linenos">102</span></a>
+</span><span id="nest_df-103"><a href="#nest_df-103"><span class="linenos">103</span></a>    <span class="k">return</span> <span class="n">ele</span> 
+</span></pre></div>
+
+
+            <div class="docstring"><p>selects item from nested dataframe
+Max 4 layers deep.</p>
+</div>
+
+
+                </section>
     </main>
 <script>
     function escapeHTML(html) {
