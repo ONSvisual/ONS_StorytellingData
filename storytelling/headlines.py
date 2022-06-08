@@ -24,7 +24,7 @@ def summary_selection(code):
                         "LAD": code,
                         "NAME": names[code],
                         f"POP{config.PY}": int(population['PRIMARY'].loc[code]),
-                        f"POP{config.SY}": int(population['PRIMARY'].loc[code]),
+                        f"POP{config.SY}": int(population['SECONDARY'].loc[code]),
                         "CHANGE": population_delta[code]
                     }
 
