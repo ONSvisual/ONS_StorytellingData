@@ -35,7 +35,7 @@ def get_headline_data(df):
 
     # abs change 
 
-    abs_change = pd.DataFrame(df['ABS_CHANGE']).dropna()
+    abs_change = pd.DataFrame(df.sort_values('PC_CHANGE',ascending=False)['PC_CHANGE']).dropna()
 
 
 
