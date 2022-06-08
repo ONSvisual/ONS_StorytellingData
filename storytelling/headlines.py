@@ -35,18 +35,18 @@ def get_headline_data(df):
 
     # abs change 
 
-    abs_change = pd.DataFrame(df.sort_values('PC_CHANGE',ascending=False)['PC_CHANGE']).dropna()
+    change = pd.DataFrame(df['PC_CHANGE']).sort_values(axis=0, ascending=False).dropna()
 
 
 
     return       {
             "BIGGEST_POP_CHANGE_UP": {
-                "top": summary_selection(abs_change.index[0]),
-                "second": summary_selection(abs_change.index[1])
+                "top": summary_selection(change.index[0]),
+                "second": summary_selection(change.index[1])
             },
             "BIGGEST_POP_CHANGE_DOWN": {
-                "lowest": summary_selection(abs_change.index[-1]),
-                "second_lowest": summary_selection(abs_change.index[-2])
+                "lowest": summary_selection(change.index[-1]),
+                "second_lowest": summary_selection(change.index[-2])
                 }
         }
 
